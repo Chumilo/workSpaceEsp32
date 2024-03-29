@@ -1,0 +1,10 @@
+#ifndef MOTORCONFIG_H
+#define MOTORCONFIG_H
+
+#define SAMPLE_TIME_LEFT 100
+#define SAMPLE_TIME_RIGHT 100
+#define CONST_VALUE_RIGHT 0.0618
+#define CONST_VALUE_LEFT 0.0618
+
+
+#endif 
