@@ -1,4 +1,4 @@
-#include "motor.h"
+#include "encoder.h"
 
 Encoder* Encoder::ptrRightEncoder = nullptr;
 Encoder* Encoder::ptrLeftEncoder = nullptr;

@@ -1,5 +1,5 @@
-#ifndef MOTORCONFIG_H
-#define MOTORCONFIG_H
+#ifndef ENCODERCONFIG_H
+#define ENCODERCONFIG_H
  
 #define CH1 23
 #define CH2 19 
