@@ -7,7 +7,7 @@ class Motor
 {
     private:
         uint8_t channel;
-        uint8_t maxSpeed;
+        uint8_t maxPwm;
         uint8_t speedPin;
         uint8_t inputA;
         uint8_t inputB;
@@ -16,7 +16,7 @@ class Motor
     
     public:
         Motor() {}
-        Motor(uint8_t channel, uint8_t maxSpeed, uint8_t speedPin, uint8_t inputA, uint8_t inputB);
+        Motor(uint8_t channel, uint8_t maxPwm, uint8_t speedPin, uint8_t inputA, uint8_t inputB);
         void init();
         void setSpeed(uint8_t percentage);
         void moveForward();
