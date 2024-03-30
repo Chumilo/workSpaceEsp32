@@ -5,6 +5,10 @@
 #define ALPHA 0.5
 #endif
 
+#ifndef MAX_DISTANCE
+#define MAX_DISTANCE 80.0
+#endif
+
 #include <Arduino.h>
 
 class Ultrasonic

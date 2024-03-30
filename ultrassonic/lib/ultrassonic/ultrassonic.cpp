@@ -22,6 +22,10 @@ float Ultrasonic::mesureDistance()
   duration = pulseIn(echoPin,HIGH);
   st_1 = distance;
   distance = 0.017 * duration;
+  if(distance >= MAX_DISTANCE)
+  {
+    distance = MAX_DISTANCE;
+  }
   return emaFilter(distance,st_1);
 }
 
