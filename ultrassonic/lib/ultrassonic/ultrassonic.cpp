@@ -26,6 +26,10 @@ float Ultrasonic::mesureDistance()
   {
     distance = MAX_DISTANCE;
   }
+  if(distance <= MIN_DISTANCE)
+  {
+    distance = MIN_DISTANCE;
+  }
   return emaFilter(distance,st_1);
 }
 

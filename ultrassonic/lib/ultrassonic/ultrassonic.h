@@ -9,6 +9,10 @@
 #define MAX_DISTANCE 80.0
 #endif
 
+#ifndef MIN_DISTANCE
+#define MIN_DISTANCE 0.0
+#endif
+
 #include <Arduino.h>
 
 class Ultrasonic
