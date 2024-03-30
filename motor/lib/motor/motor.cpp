@@ -1,9 +1,9 @@
 #include "motor.h"
 
-Motor::Motor(uint8_t channel, uint8_t maxSpeed, uint8_t speedPin, uint8_t inputA, uint8_t inputB)
+Motor::Motor(uint8_t channel, uint8_t maxPwm, uint8_t speedPin, uint8_t inputA, uint8_t inputB)
 {
   this->channel = channel;
-  this->maxSpeed = maxSpeed;
+  this->maxPwm = maxPwm;
   this->speedPin = speedPin;
   this->inputA = inputA;
   this->inputB = inputB;
@@ -21,7 +21,7 @@ void Motor::init()
 
 void Motor::setSpeed(uint8_t percentage)
 {
-  speed = (maxSpeed * percentage) / 100;
+  speed = (maxPwm * percentage) / 100;
   ledcWrite(channel, speed);
 }
 
