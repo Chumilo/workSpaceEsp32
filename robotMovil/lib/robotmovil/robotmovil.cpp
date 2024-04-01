@@ -60,6 +60,7 @@ void RobotMovil::update()
 
         case STATED_FRONT_SENSOR:
         {
+            //front();
             if(timeNow - frontSensorStartTime > frontSensorStateDurtion)
             {
                 state = STATED_RIGHT_SENSOR;
@@ -70,6 +71,7 @@ void RobotMovil::update()
 
         case STATED_RIGHT_SENSOR:
         {
+            right();
             if(timeNow - rightSensorStartTime > rightSensorStateDurtion)
             {
                 state = COMMUNICATION_SENSORS;
