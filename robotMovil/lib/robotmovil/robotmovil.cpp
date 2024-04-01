@@ -17,23 +17,14 @@ void RobotMovil::init()
 
     serial.init();
 
-    state = STATED_LEFT_SENSOR;
-    left();
+    state = STATED_SENSORS;
+    sensors();
 }
 
-void RobotMovil::left()
+void RobotMovil::sensors()
 {
     left_sensor = leftSensor.mesureDistance();
-                             
-}
-
-void RobotMovil::front()
-{
-    front_sensor = frontSensor.mesureDistance();
-}
-
-void RobotMovil::right()
-{
+    //front_sensor = frontSensor.mesureDistance();
     right_sensor = rightSensor.mesureDistance();
 }
 
@@ -42,40 +33,19 @@ void RobotMovil::communication()
     Serial.println(String(left_sensor) + ',' + String(front_sensor) + ',' + String(right_sensor));
 }
 
+
 void RobotMovil::update()
 {
     uint32_t timeNow = millis();
 
     switch(state){
-        case STATED_LEFT_SENSOR:
+        case STATED_SENSORS:
         {
-            left();
-            if(timeNow - leftSensorStartTime > leftSensorStateDurtion)
-            {
-                state = STATED_FRONT_SENSOR;
-                leftSensorStartTime = timeNow;
-            }
-            break;
-        }
-
-        case STATED_FRONT_SENSOR:
-        {
-            //front();
-            if(timeNow - frontSensorStartTime > frontSensorStateDurtion)
-            {
-                state = STATED_RIGHT_SENSOR;
-                frontSensorStartTime = timeNow;
-            }
-            break;
-        }
-
-        case STATED_RIGHT_SENSOR:
-        {
-            right();
-            if(timeNow - rightSensorStartTime > rightSensorStateDurtion)
+            sensors();
+            if(timeNow - sensorsStartTime > sensorsStateDurtion)
             {
                 state = COMMUNICATION_SENSORS;
-                rightSensorStartTime = timeNow;
+                sensorsStartTime = timeNow;
             }
             break;
         }
@@ -85,14 +55,14 @@ void RobotMovil::update()
             communication();
             if(timeNow - communicationSensorStartTime > communicationSensorStateDurtion)
             {
-                state = STATED_LEFT_SENSOR;
+                state = STATED_SENSORS;
                 communicationSensorStartTime = timeNow;
             }
         }
 
         default:
         {
-            state = STATED_LEFT_SENSOR;
+            state = STATED_SENSORS;
         }
 
     }

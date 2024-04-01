@@ -16,22 +16,16 @@ class RobotMovil
 
         enum robotMovilState
         {
-            STATED_LEFT_SENSOR,
-            STATED_FRONT_SENSOR,
-            STATED_RIGHT_SENSOR,
+            STATED_SENSORS,
             COMMUNICATION_SENSORS,
         };
 
         uint8_t state;
 
-        uint32_t leftSensorStartTime;
-        uint32_t frontSensorStartTime;
-        uint32_t rightSensorStartTime;
+        uint32_t sensorsStartTime;
         uint32_t communicationSensorStartTime;
 
-        const uint32_t leftSensorStateDurtion  = 20;
-        const uint32_t frontSensorStateDurtion = 20;
-        const uint32_t rightSensorStateDurtion = 20;
+        const uint32_t sensorsStateDurtion = 40;
         const uint32_t communicationSensorStateDurtion = 100;
 
         float left_sensor  = 0.0;
@@ -44,9 +38,7 @@ class RobotMovil
 
         void init();
 
-        void left();
-        void front();
-        void right();
+        void sensors();
         void communication();
         void update();
 };
