@@ -1,19 +1,20 @@
 #include <Arduino.h>
-#include "ultrassonic.h"
+//#include "ultrassonic.h"
 
-float left_sensor = 0.0;
+//float left_sensor = 0.0;
 
-Ultrasonic leftSensor(2,4);
+//Ultrasonic leftSensor(2,4);
 
 void setup() 
 {
-  leftSensor.init();
+  //leftSensor.init();
   Serial.begin(9600);
 }
 
 void loop() 
 {
-  left_sensor = leftSensor.mesureDistance();
-  Serial.println(String(left_sensor));
-  delay(100);
+  //left_sensor = leftSensor.mesureDistance();
+  //Serial.println(String(left_sensor));
+  Serial.println("camilo");
+  //delay(100);
 }
